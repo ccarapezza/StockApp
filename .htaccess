@@ -1,0 +1,16 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php 
+
+## URL AMIGABLES
+RewriteRule ^reimprimir/(.+)$ re-imprimir.php?id=$1 [QSA]
+RewriteRule ^editar-producto/(.+)/(.+)$ editarproducto.php?id=$1&nombre=$2 [QSA]
+
+<Files *.md>
+    ForceType application/octet-stream
+    Header set Content-Disposition attachment
+</Files>
+
+
+
